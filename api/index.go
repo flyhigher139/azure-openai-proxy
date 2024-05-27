@@ -23,6 +23,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 var (
@@ -57,6 +58,10 @@ func init() {
 func Handler(w http.ResponseWriter, r *http.Request) {
 	router.ServeHTTP(w, r)
 	//fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
+	if strings.HasPrefix(r.URL.Path, "/") {
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte("Hello World"))
+	}
 }
 
 // corsMiddleware sets up the CORS headers for all responses
