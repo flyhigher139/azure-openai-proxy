@@ -54,8 +54,9 @@ func init() {
 	registerRoute(router)
 }
 
-func Listen(w http.ResponseWriter, r *http.Request) {
-	router.ServeHTTP(w, r)
+func Handler(w http.ResponseWriter, r *http.Request) {
+	//router.ServeHTTP(w, r)
+	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
 }
 
 // corsMiddleware sets up the CORS headers for all responses
