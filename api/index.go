@@ -102,8 +102,8 @@ func registerRoute(r *gin.Engine) {
 	r.HEAD("/", func(c *gin.Context) {
 		c.Status(200)
 	})
-	r.GET("/#/", func(c *gin.Context) {
-		c.String(200, "Hello World")
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Hello Root")
 	})
 	r.Any("/health", func(c *gin.Context) {
 		c.Status(200)
